@@ -1,3 +1,0 @@
-# willitrain
-Personal project
-
