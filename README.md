@@ -1,2 +1,2 @@
 # willitrain
-Personal project
+Server for Snooker app!
