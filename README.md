@@ -1,2 +1,2 @@
 # willitrain
-Personal project
+personal project
