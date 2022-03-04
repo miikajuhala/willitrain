@@ -34,11 +34,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
     protected void configure(HttpSecurity http) throws Exception {
      http.csrf().disable().cors().and().authorizeRequests()
-      .antMatchers(HttpMethod.POST, "/login","/loginpage","/api/register").permitAll()
-      .antMatchers(HttpMethod.GET, "/api", "/api/**","/role","/loginpage","/saveuser","/signup").permitAll()
+      .antMatchers(HttpMethod.POST, "/login","/loginpage","/api/frames/*", "/api/**","/api/register/*").permitAll()
+      .antMatchers(HttpMethod.GET ,"/api","/api/users/**","/getid/**","api/spots/**","/username", "/api/**","/role","/loginpage","/saveuser","/signup","/api/users/search/findByUsername","/api/users/search/findByUsername?admin").permitAll()
       .antMatchers(HttpMethod.PUT, "/api", "/api/**").permitAll()
      // .antMatchers(HttpMethod.GET, "api/spots", "api/users**").hasRole("admin")
-      .antMatchers(HttpMethod.POST, "/api/spots/add","/saveuser","/api/admin/newuser").authenticated()
+     // .antMatchers(HttpMethod.POST, "/api/spots/add","/saveuser","/api/admin/newuser").authenticated()
       .antMatchers(HttpMethod.DELETE, "/api/spots/delete/*").permitAll()
           .anyRequest().authenticated()
           .and()

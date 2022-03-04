@@ -7,6 +7,7 @@ import com.example.willitrain.web.User;
 
 public interface UserRepository extends CrudRepository<User, Long> {
 	
-
 	User findByUsername(String username);
+
+	User findById(int i);
 }

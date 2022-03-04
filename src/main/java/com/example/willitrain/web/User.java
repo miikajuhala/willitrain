@@ -3,6 +3,7 @@ package com.example.willitrain.web;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue; 
 import javax.persistence.GenerationType;
@@ -24,9 +25,9 @@ public class User {
 	private String password;
 	private String role;
 	
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
 	@JsonIgnore
-	@OneToMany
-	private List<UserRoute> routes = new ArrayList<>();
+	private List<Frame> frames;
 	
 	
 	
@@ -48,8 +49,14 @@ public class User {
 		this.password = password;
 		this.role = role;
 	}
+	public User( String username, String password) {
+		super();
+		this.username = username;
+		this.password = password;
+	}
 	
 	
+
 	public Long getId() {
 		return id;
 	}
@@ -75,12 +82,12 @@ public class User {
 		this.role = role;
 	}
 
-	public List<UserRoute> getRoutes() {
-		return routes;
+	public List<Frame> getFrames() {
+		return frames;
 	}
 
-	public void setRoutes(ArrayList<UserRoute> routes) {
-		this.routes = routes;
+	public void setFrame(List<Frame> frames) {
+		this.frames = frames;
 	}
 
 
