@@ -34,7 +34,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
     protected void configure(HttpSecurity http) throws Exception {
      http.csrf().disable().cors().and().authorizeRequests()
-      .antMatchers(HttpMethod.POST, "/login","/loginpage","/api/frames/*", "/api/**","/api/register/*").permitAll()
+      .antMatchers(HttpMethod.POST, "/login","/loginpage","/api/frames/*", "/api/**","/api/register/*, api/login").permitAll()
       .antMatchers(HttpMethod.GET ,"/api","/api/users/**","/getid/**","api/spots/**","/username", "/api/**","/role","/loginpage","/saveuser","/signup","/api/users/search/findByUsername","/api/users/search/findByUsername?admin").permitAll()
       .antMatchers(HttpMethod.PUT, "/api", "/api/**").permitAll()
      // .antMatchers(HttpMethod.GET, "api/spots", "api/users**").hasRole("admin")
@@ -62,7 +62,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         UrlBasedCorsConfigurationSource source = 
             new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowedOrigins(Arrays.asList("http://localhost:3000/"));
+        config.setAllowedOrigins(Arrays.asList("http://localhost:3000/", "https://exposnooker.herokuapp.com/*"));
         config.setAllowedMethods(Arrays.asList("*"));
         config.setAllowedHeaders(Arrays.asList("*")); 
         config.setAllowCredentials(true);
