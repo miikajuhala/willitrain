@@ -1,2 +1,2 @@
-# willitrain
-personal project
+# Snooker Project backend
+
